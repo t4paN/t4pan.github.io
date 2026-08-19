@@ -1,0 +1,107 @@
+/* AVA is built for partially-sighted users, so its own site had better be
+   readable: large type, high contrast, generous spacing, no fixed pixel
+   layouts that break on zoom. */
+
+:root {
+  --bg: #fbfaf7;
+  --surface: #ffffff;
+  --ink: #16130f;
+  --ink-soft: #4d453b;
+  --rule: #e2dbcf;
+  --accent: #a8431f;
+  --accent-soft: #f6ece5;
+  --measure: 40rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14120f;
+    --surface: #1d1a16;
+    --ink: #f2ede4;
+    --ink-soft: #b5aa99;
+    --rule: #35302a;
+    --accent: #f08c5e;
+    --accent-soft: #2a201a;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  padding: 2.5rem 1.25rem 6rem;
+  background: var(--bg);
+  color: var(--ink);
+  font: 400 1.125rem/1.65 ui-sans-serif, system-ui, -apple-system,
+        "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+main, header, footer { max-width: var(--measure); margin-inline: auto; }
+
+h1, h2, h3 { line-height: 1.2; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 6vw, 2.75rem); margin: 0 0 .5rem; letter-spacing: -.02em; }
+h2 {
+  font-size: 1.4rem; margin: 3rem 0 .75rem;
+  padding-top: 1.5rem; border-top: 1px solid var(--rule);
+}
+h3 { font-size: 1.125rem; margin: 2rem 0 .5rem; color: var(--ink-soft); }
+
+p, li { max-width: var(--measure); }
+li { margin-bottom: .4rem; }
+
+a { color: var(--accent); text-underline-offset: .18em; }
+a:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.lede { font-size: 1.3rem; color: var(--ink-soft); margin-bottom: 2.5rem; }
+
+.eyebrow {
+  font-size: .8rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--ink-soft); margin: 0 0 1rem;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.callout {
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 8px 8px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.callout p:first-child { margin-top: 0; }
+.callout p:last-child { margin-bottom: 0; }
+
+.langbar {
+  display: flex; flex-wrap: wrap; gap: .75rem;
+  margin-bottom: 2rem; padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+}
+.langbar a {
+  border: 1px solid var(--rule); border-radius: 999px;
+  padding: .3rem 1rem; text-decoration: none; font-size: .95rem;
+}
+
+footer {
+  margin-top: 4rem; padding-top: 1.5rem;
+  border-top: 1px solid var(--rule);
+  color: var(--ink-soft); font-size: .95rem;
+}
+
+.skip {
+  position: absolute; left: -9999px;
+}
+.skip:focus {
+  position: static; display: inline-block; margin-bottom: 1rem;
+}
