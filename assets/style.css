@@ -105,3 +105,83 @@ footer {
 .skip:focus {
   position: static; display: inline-block; margin-bottom: 1rem;
 }
+
+/* ---- Project grid -------------------------------------------------------
+   Each tile is a flat colour square with the project name underneath. The
+   icon is a *background image* rather than an <img> on purpose: until the
+   file exists the browser paints nothing and the flat colour stands on its
+   own, where a missing <img> would show a broken-image glyph. So adding an
+   icon later is a file drop into assets/tiles/ with no markup change.
+
+   The label sits under the square, never on it, so tile colours never have
+   to pass a contrast check against text — and the name stays readable when
+   the page is zoomed, which is the standing rule for this site.           */
+
+.grid li { margin-bottom: 0; max-width: none; }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 11rem));
+  gap: 1.5rem;
+  justify-content: start;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tile {
+  display: block;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.tile__art {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  border: 1px solid var(--rule);
+  background-color: var(--tile-bg, var(--rule));
+  background-image: var(--tile-icon, none);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 62%;
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+
+.tile__name {
+  display: block;
+  margin-top: .7rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.tile__note {
+  display: block;
+  color: var(--ink-soft);
+  font-size: .92rem;
+  line-height: 1.4;
+}
+
+.tile:hover .tile__art,
+.tile:focus-visible .tile__art {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 18%);
+}
+
+.tile:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tile__art { transition: none; }
+  .tile:hover .tile__art,
+  .tile:focus-visible .tile__art { transform: none; }
+}
+
+/* Secondary links under the grid — small, quiet, still real targets. */
+.subnav {
+  display: flex; flex-wrap: wrap; gap: .5rem 1.25rem;
+  margin-top: 2.5rem; font-size: .95rem;
+}

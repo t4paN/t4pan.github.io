@@ -4,30 +4,49 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>t4paN</title>
-<meta name="description" content="Projects by t4paN — including AVA, a Greek voice assistant for Android built for partially-sighted and elderly users.">
+<meta name="description" content="Projects by t4paN — including AVA, a Greek voice assistant for Android built for partially-sighted and elderly users, and Chisel, a spartan digital sculpting tool.">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
+<a class="skip" href="#projects">Skip to projects</a>
+
 <header>
   <h1>t4paN</h1>
   <p class="lede">Designer. Builder of small, stubbornly useful things.</p>
 </header>
 
 <main>
-  <h2>Projects</h2>
-  <div class="card">
-    <h3 style="margin-top:0"><a href="/ava/">AVA — Aggelos Voice Assistant</a></h3>
-    <p>A Greek-language voice assistant for Android, built for partially-sighted
-    and elderly users. One big button replaces a dozen small taps: press, say a
-    name, the call is placed. Speech recognition runs entirely on the device.</p>
-    <p><a href="/ava/">About</a> ·
-    <a href="/ava/privacy.html">Privacy policy</a> ·
-    <a href="https://github.com/t4paN/AVA">Source</a></p>
-  </div>
+  <h2 id="projects">Projects</h2>
+
+  <!-- Tiles are flat colour for now. To give one an icon, drop a square image
+       at assets/tiles/<name>.png and set --tile-icon on that tile — nothing
+       else changes, and until the file exists the colour simply stands alone. -->
+  <ul class="grid">
+    <li>
+      <a class="tile" href="/ava/" style="--tile-bg:#b4491f">
+        <span class="tile__art"></span>
+        <span class="tile__name">AVA</span>
+        <span class="tile__note">Greek voice assistant for Android</span>
+      </a>
+    </li>
+    <li>
+      <a class="tile" href="https://github.com/t4paN/chisel-sculpt" style="--tile-bg:#4a5259">
+        <span class="tile__art"></span>
+        <span class="tile__name">Chisel</span>
+        <span class="tile__note">Digital sculpting tool. Spartan by design.</span>
+      </a>
+    </li>
+  </ul>
+
+  <p class="subnav">
+    <a href="/ava/">About AVA</a>
+    <a href="/ava/privacy.html">AVA privacy policy</a>
+    <a href="https://github.com/t4paN">github.com/t4paN</a>
+  </p>
 </main>
 
 <footer>
-  <p><a href="https://github.com/t4paN">github.com/t4paN</a></p>
+  <p>Contact: <a href="mailto:ergastiri3d@gmail.com">ergastiri3d@gmail.com</a></p>
 </footer>
 </body>
 </html>
