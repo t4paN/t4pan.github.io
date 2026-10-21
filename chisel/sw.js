@@ -9,7 +9,7 @@
 // Only same-origin GETs are handled. Everything else (the shell's POST /log,
 // cross-origin requests) goes straight to the network and fails quietly offline.
 
-const BUILD = '6b747bb939a7';
+const BUILD = '003c42d63a38';
 const CACHE = 'chisel-' + BUILD;
 const FILES = [
   './',
